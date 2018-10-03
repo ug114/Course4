@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MyClass;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
@@ -13,6 +13,9 @@ namespace ConsoleApp1
         {
             string url = ConfigurationManager.AppSettings["SiteUrl"];
             Console.WriteLine(url);
+
+            Class1 element = new Class1();
+            element.WriteSomething();
         }
     }
 }
