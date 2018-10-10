@@ -7,13 +7,15 @@ namespace VectorTest
     [TestClass]
     public class VectorTest
     {
+        private double epsilon = 0.001;
+
         [TestMethod]
         public void TestLengthIsEqual()
         {
             var vector1 = new Vector(new double[] { 1, 2, 3 });
             var vector2 = new Vector(new double[] { 0, 2, 1 });
 
-            Assert.AreEqual(Vector.GetScalarMultiplication(vector1, vector2), 7);
+            Assert.AreEqual(Vector.GetScalarMultiplication(vector1, vector2), 7, epsilon);
         }
 
         [TestMethod]
@@ -22,7 +24,7 @@ namespace VectorTest
             var vector1 = new Vector(new double[] { 1, 2 });
             var vector2 = new Vector(new double[] { 0, 2, 1 });
 
-            Assert.AreEqual(Vector.GetScalarMultiplication(vector1, vector2), 4);
+            Assert.AreEqual(Vector.GetScalarMultiplication(vector1, vector2), 4, epsilon);
         }
 
         [TestMethod]
@@ -31,7 +33,7 @@ namespace VectorTest
             var vector1 = new Vector(new double[] { 1, 2, 3 });
             var vector2 = new Vector(new double[] { 2, 1 });
 
-            Assert.AreEqual(Vector.GetScalarMultiplication(vector1, vector2), 4);
+            Assert.AreEqual(Vector.GetScalarMultiplication(vector1, vector2), 4, epsilon);
         }
     }
 }

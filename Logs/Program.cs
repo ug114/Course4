@@ -11,18 +11,22 @@ namespace Logs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
             var logger = LogManager.GetCurrentClassLogger();
-            logger.Info("Приложение запущено");
+            logger.Info("Приложение запущено.");
 
+            Console.WriteLine("Введите сегодняшнее число: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            
             try
             {
-                throw new Exception("Ошибка");
+                if (number <= 0 || number > 31)
+                {
+                    throw new Exception("Число введено неверно.");
+                }
             }
             catch (Exception e)
             {
-                logger.Error(e, "Ошибка");
+                logger.Error(e, e.Message);
             }
         }
     }

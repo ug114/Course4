@@ -1,30 +1,31 @@
-using System;
 using System.Collections.Generic;
 using ClosedXML.Excel;
 
 namespace Excel
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            List<Person> contactList = new List<Person>();
-            contactList.Add(new Person()
+            var contactList = new List<Person>
             {
-                Age = 32,
-                Name = "Viktor",
-                Surname = "Kuznetsov",
-                Phone = 123456
-            });
-            contactList.Add(new Person()
-            {
-                Age = 45,
-                Name = "Alexandra",
-                Surname = "Petrova",
-                Phone = 562341
-            });
-            
-            using (XLWorkbook workbook = new XLWorkbook())
+                new Person()
+                {
+                    Age = 32,
+                    Name = "Victor",
+                    Surname = "Kuznetsov",
+                    Phone = 123456
+                },
+                new Person()
+                {
+                    Age = 45,
+                    Name = "Alexandra",
+                    Surname = "Petrova",
+                    Phone = 562341
+                }
+            };
+
+            using (var workbook = new XLWorkbook())
             {
                 var worksheet = workbook.Worksheets.Add("Лист1");
 
@@ -33,7 +34,7 @@ namespace Excel
                 worksheet.Cell("C" + 1).Value = "Age";
                 worksheet.Cell("D" + 1).Value = "Phone";
 
-                int i = 2;
+                var i = 2;
 
                 foreach (var person in contactList)
                 {
@@ -45,6 +46,7 @@ namespace Excel
                     i++;
                 }
 
+                worksheet.Columns().Width = 12;
                 workbook.SaveAs("Contacts.xlsx");
             }
         }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1.csproj", "{61171260-10C1-4C10-A067-91E6EB5C7CBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationFile", "ConfigurationFile.csproj", "{61171260-10C1-4C10-A067-91E6EB5C7CBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClass", "..\MyClass\MyClass.csproj", "{C1635B6A-610D-40B6-8D60-C4A3ABF0139F}"
 EndProject
