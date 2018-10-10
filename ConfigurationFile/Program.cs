@@ -5,7 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleApp1
+namespace ConfigurationFile
 {
     class Program
     {
