@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NLog;
 
 namespace Logs
@@ -16,7 +12,7 @@ namespace Logs
 
             Console.WriteLine("¬ведите сегодн€шнее число: ");
             int number = Convert.ToInt32(Console.ReadLine());
-            
+
             try
             {
                 if (number <= 0 || number > 31)

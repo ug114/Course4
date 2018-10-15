@@ -7,7 +7,7 @@ namespace VectorTest
     [TestClass]
     public class VectorTest
     {
-        private double epsilon = 0.001;
+        private readonly double epsilon = 0.001;
 
         [TestMethod]
         public void TestLengthIsEqual()
