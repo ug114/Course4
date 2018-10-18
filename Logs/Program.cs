@@ -3,15 +3,15 @@ using NLog;
 
 namespace Logs
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var logger = LogManager.GetCurrentClassLogger();
             logger.Info("Приложение запущено.");
 
             Console.WriteLine("Введите сегодняшнее число: ");
-            int number = Convert.ToInt32(Console.ReadLine());
+            var number = Convert.ToInt32(Console.ReadLine());
 
             try
             {
