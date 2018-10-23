@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VectorTest", "..\VectorTest
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ShopDb", "..\ShopDb\ShopDb.sqlproj", "{B640F194-70C3-4BF3-AF9C-8D2E8BCD684C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNet", "AdoNet\AdoNet.csproj", "{59BDD830-13C0-4E46-8320-CEB585A4F517}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNet", "..\AdoNet\AdoNet.csproj", "{59BDD830-13C0-4E46-8320-CEB585A4F517}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
