@@ -9,14 +9,14 @@ namespace Excel
         {
             var contactList = new List<Person>
             {
-                new Person()
+                new Person
                 {
                     Age = 32,
                     Name = "Victor",
                     Surname = "Kuznetsov",
                     Phone = 123456
                 },
-                new Person()
+                new Person
                 {
                     Age = 45,
                     Name = "Alexandra",

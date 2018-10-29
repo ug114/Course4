@@ -16,38 +16,47 @@ namespace AdoNet
                 connection.Open();
                 //Console.WriteLine("Connection state = " + connection.State);
 
-                var sql = "SELECT COUNT(*) FROM Items";
+                var sql = @"SELECT COUNT(*) 
+                            FROM Items";
                 using (var command = new SqlCommand(sql, connection))
                 {
-                    var itemsCount = (int) command.ExecuteScalar();
+                    var itemsCount = (int)command.ExecuteScalar();
                     Console.WriteLine("Число товаров = " + itemsCount);
                 }
 
-                sql = "INSERT INTO Categories(Name) VALUES(N'Сухофрукты')";
+                sql = @"INSERT INTO Categories(Name) 
+                        VALUES(@categoryName)";
+                const string categoryName = "Сухофрукты";
+                var commandWithParameter = new SqlCommand(sql, connection);
+                commandWithParameter.Parameters.Add(new SqlParameter("@categoryName", categoryName)
+                    {SqlDbType = SqlDbType.NChar});
+                commandWithParameter.ExecuteNonQuery();
+
+                sql = @"INSERT INTO Items(Name, CategoryId) 
+                        VALUES(N'Лимоны', 5)";
                 using (var command = new SqlCommand(sql, connection))
                 {
                     command.ExecuteNonQuery();
                 }
 
-                sql = "INSERT INTO Items(Name, CategoryId) VALUES(N'Лимоны', 5)";
+                sql = @"UPDATE Items 
+                        SET [Name] = N'Апельсины' 
+                        WHERE [Id] = 1";
                 using (var command = new SqlCommand(sql, connection))
                 {
                     command.ExecuteNonQuery();
                 }
 
-                sql = "UPDATE Items SET [Name] = N'Апельсины' WHERE [Id] = 1";
+                sql = @"DELETE FROM Items 
+                        WHERE [Name] = N'Апельсины'";
                 using (var command = new SqlCommand(sql, connection))
                 {
                     command.ExecuteNonQuery();
                 }
 
-                sql = "DELETE FROM Items WHERE [Name] = N'Апельсины'";
-                using (var command = new SqlCommand(sql, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-
-                sql = "SELECT Items.Id, Items.Name, Categories.Name as CategoryName FROM Items INNER JOIN Categories ON Items.CategoryId = Categories.Id";
+                sql = @"SELECT Items.Id, Items.Name, Categories.Name as CategoryName 
+                        FROM Items 
+                        INNER JOIN Categories ON Items.CategoryId = Categories.Id";
                 using (var command = new SqlCommand(sql, connection))
                 {
                     using (var reader = command.ExecuteReader())
@@ -62,7 +71,7 @@ namespace AdoNet
                         Console.WriteLine();
                     }
                 }
-                
+
                 var items = new SqlDataAdapter(sql, connection);
                 var dataSet = new DataSet("Items");
                 items.FillSchema(dataSet, SchemaType.Source, "Items");
